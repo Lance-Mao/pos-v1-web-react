@@ -14,10 +14,14 @@ class ShowProductList extends Component {
                     <img src={product.image} />
                 </div>
                 <div>
-                    <span className="product-name">商品名称：{product.name}</span>
+                    <span className="product-name">名称：{product.name}</span>
                 </div>
                 <div>
-                    <span className="product-price">商品单价：{product.price}元/{product.unit}</span>
+                    <span className="product-price">单价：{product.price}元/{product.unit}</span>
+                </div>
+                <div className="product-addCart">
+                    <button>购买</button>
+                    <span>购买数量： 0</span>
                 </div>
             </div>
         )
