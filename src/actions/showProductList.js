@@ -10,8 +10,15 @@ class ShowProductList extends Component {
         const product = this.props.product;
         return (
             <div className="product-details">
-                <span className="product-name">{product.name}</span>
-                <span className="product-price">{product.price}元/{product.unit}</span>
+                <div>
+                    <img src={product.image} />
+                </div>
+                <div>
+                    <span className="product-name">商品名称：{product.name}</span>
+                </div>
+                <div>
+                    <span className="product-price">商品单价：{product.price}元/{product.unit}</span>
+                </div>
             </div>
         )
     }
