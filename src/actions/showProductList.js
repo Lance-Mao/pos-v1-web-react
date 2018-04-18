@@ -4,6 +4,12 @@ import './product.css'
 class ShowProductList extends Component {
     constructor() {
         super();
+        this.state = {count : 0}
+        this.incrementCount = this.incrementCount.bind(this)
+    }
+
+    incrementCount(){
+        this.setState({count: this.state.count + 1});
     }
 
     render() {
@@ -20,8 +26,8 @@ class ShowProductList extends Component {
                     <span className="product-price">单价：{product.price}元/{product.unit}</span>
                 </div>
                 <div className="product-addCart">
-                    <button>购买</button>
-                    <span>购买数量： 0</span>
+                    <button onClick={this.incrementCount}>购买</button>
+                    <span>购买数量： {this.state.count}</span>
                 </div>
             </div>
         )
