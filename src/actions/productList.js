@@ -56,10 +56,6 @@ class ProductList extends Component {
         this.dataBase = dataBase;
     }
 
-    clearingByProduct(e) {
-        e.target.parentElement.querySelector('.showPurchaseList').style.display = 'block';
-    }
-
     getShoppingCart(itemBarcode) {
         this.purchaseList.push(itemBarcode);
         let data = this.state.purchaseList;
@@ -73,9 +69,6 @@ class ProductList extends Component {
         return (
             <div className='product'>
                 {showProductAll}
-                <button className="product-clearing" onClick={this.clearingByProduct.bind(this)}>
-                    结算
-                </button>
                 <ShowPurchaseList showPurchaseList={this.state.purchaseList} />
             </div>
         )

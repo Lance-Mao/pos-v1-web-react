@@ -1,17 +1,24 @@
 import React, {Component} from 'react';
 import AppendPurchaseList from './AppendPurchaseList';
+import ProductClearing from './ProductClearing'
 import './product.css'
 
 class ShowPurchaseList extends Component {
     static defaultProps = {
-        purchaseItems : []
+        purchaseItems: []
     };
 
     constructor(props) {
         super(props);
         this.state = {
-            purchaseItems:[]
+            purchaseItems: []
         }
+    }
+
+    submitProductClearing(){
+        this.setState({
+            purchaseItems: this.props.showPurchaseList
+        });
     }
 
     render() {
@@ -20,8 +27,13 @@ class ShowPurchaseList extends Component {
 
         return (
             <div className='showPurchaseList'>
-                <h1>已购买列表</h1>
-                {appendList}
+                <div>
+                    {appendList}
+                </div>
+                <button className="product-clearing" onClick={this.submitProductClearing.bind(this)}>
+                    结算
+                </button>
+                <ProductClearing submitProductClearing={this.state.purchaseItems}/>
             </div>
         );
     }

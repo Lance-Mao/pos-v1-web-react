@@ -14,7 +14,7 @@ class AppendPurchaseList extends Component {
                     <span>{this.props.item[0].name}</span>
                 </p>
                 <p>
-                    <span>单价:</span>
+                    <span>单价：</span>
                     <span>{this.props.item[0].price}元/{this.props.item[0].unit}</span>
                 </p>
                 <p>
