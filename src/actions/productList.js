@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ShowProductList from './showProductList'
+import ShowPurchaseList from './ShowPurchaseList'
 import './product.css'
 
 const dataBase = [
@@ -48,16 +49,34 @@ const dataBase = [
 ];
 
 class ProductList extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        this.purchaseList = [];
+        this.state = {allProduct: "", purchaseList: []};
         this.dataBase = dataBase;
     }
 
+    clearingByProduct(e) {
+        e.target.parentElement.querySelector('.showPurchaseList').style.display = 'block';
+    }
+
+    getShoppingCart(itemBarcode) {
+        this.purchaseList.push(itemBarcode);
+        let data = this.state.purchaseList;
+        data.push(itemBarcode);
+        this.setState({purchaseList:data});
+    }
+
     render() {
-        const showProductAll = this.dataBase.map(item => <ShowProductList product={item} />)
+        const showProductAll = this.dataBase.map((item, i) => <ShowProductList
+            getShoppingCart={this.getShoppingCart.bind(this)} key={i} product={item}/>);
         return (
             <div className='product'>
                 {showProductAll}
+                <button className="product-clearing" onClick={this.clearingByProduct.bind(this)}>
+                    结算
+                </button>
+                <ShowPurchaseList showPurchaseList={this.state.purchaseList} />
             </div>
         )
     }

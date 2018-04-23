@@ -1,5 +1,6 @@
 .product {
     width: 1400px;
+    height: 200px;
     margin: auto;
 }
 
@@ -27,16 +28,49 @@
     float: left;
 }
 
+.product-clearing {
+    text-align:center;
+    border:2px solid #a1a1a1;
+    padding:10px 40px;
+    margin-top: 180px;
+    background:#dddddd;
+    width:350px;
+    height: 50px;
+    float: none;
+    border-radius:25px;
+    -moz-border-radius:25px; /* 老的 Firefox */
+}
+
 .product-addCart {
     float: left;
 }
 
 .product-addCart span {
     width: 150px;
-    float: right;
+    float: left;
+}
+.addCart {
+    margin-top: 10px;
+    width: 150px;
+    float: left;
 }
 
 .product-details img {
     width: 200px;
     height: 200px;
+}
+
+.showPurchaseList {
+    display: none;
+}
+.showPurchasedList {
+    width: 200px;
+    height: 50px;
+    margin: 10px;
+    float: left;
+}
+.showPurchasedList p span {
+    width: 100px;
+    height: 25px;
+    margin-left: 2px;
 }
