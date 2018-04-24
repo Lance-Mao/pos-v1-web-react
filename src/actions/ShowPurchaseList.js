@@ -27,7 +27,7 @@ class ShowPurchaseList extends Component {
 
         return (
             <div className='showPurchaseList'>
-                <div>
+                <div className="showAppendList">
                     {appendList}
                 </div>
                 <button className="product-clearing" onClick={this.submitProductClearing.bind(this)}>

@@ -60,7 +60,7 @@ class ProductList extends Component {
         this.purchaseList.push(itemBarcode);
         let data = this.state.purchaseList;
         data.push(itemBarcode);
-        this.setState({purchaseList:data});
+        this.setState({purchaseList: data});
     }
 
     render() {
@@ -68,8 +68,12 @@ class ProductList extends Component {
             getShoppingCart={this.getShoppingCart.bind(this)} key={i} product={item}/>);
         return (
             <div className='product'>
-                {showProductAll}
-                <ShowPurchaseList showPurchaseList={this.state.purchaseList} />
+                <div className="showProductAll">
+                    {showProductAll}
+                </div>
+                <div >
+                    <ShowPurchaseList showPurchaseList={this.state.purchaseList}/>
+                </div>
             </div>
         )
     }

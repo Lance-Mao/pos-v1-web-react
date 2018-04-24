@@ -4,8 +4,7 @@ import './product.css'
 class ShowProductList extends Component {
     constructor() {
         super();
-        this.item = [];
-        this.state = {name:"",unit:"",price:"",barcode: "", count: 0};
+        this.state = {name: "", unit: "", price: "", barcode: "", count: 0, productItem: []};
     }
 
     incrementCountOfAdd(product) {
@@ -30,9 +29,28 @@ class ShowProductList extends Component {
     }
 
     getShoppingCart() {
-        this.item.push(this.state);
         //向父组件传值
-        this.props.getShoppingCart(this.item);
+        const item = this.state.productItem;
+        if (item.length === 0) {
+            item.push(this.state);
+        }
+
+        if (this.state.count !== 0) {
+            item.forEach((elem, index) => {
+                if (elem.barcode === this.state.barcode) {
+                    item[index] = this.state;
+                } else {
+                    item.push(this.state);
+                }
+            });
+            this.setState({
+                productItem: item.filter(e => item.filter(e1 => e !== e1))
+            });
+            this.props.getShoppingCart(this.state.productItem);
+        } else {
+            alert("购买数量为0");
+            return;
+        }
     }
 
     render() {
